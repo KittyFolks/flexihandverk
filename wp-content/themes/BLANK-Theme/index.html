@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>FlexiHåndverk</title>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript"> 
+  google.load("jquery", "1.3");
+  google.load("jqueryui", "1.7");
+</script>
+<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/jquery.easing.1.1.1.js"></script>
+
+</head>
+<body>
+<div id="back">
+  <img src="textur.png"/>
+</div>
+<div id="container">
+  <ul id="header">
+    <li id="logo"><img src="logo.png"/>
+      <ul>
+        <li>Bedrift</li>
+        <li>Privat</li>
+        <li>Referanser</li>
+        <li>Samarbeidspartnere</li>
+      </ul>
+    </li>
+  </ul>
+  <div id="content">
+    <img src="k_img.jpg"/>
+    <ul class="flying_content">
+      <li style="font-size:50px;text-transform:uppercase">40 år i faget</li>
+      <li>Snekker</li>
+      <li>Maler</li>
+      <li>Kjøkkenmontør</li>
+      <li>Møbelmontør</li>
+      <li>Parkettlegger</li>
+      <li>Gulvlegger</li>
+      
+    </ul>
+    <ul id="welcome">
+      <li>Heisann!</li>
+      <li>
+        Velkommen skal du være! Du har kommet til FlexiHåndverk, som har lang erfaring i faget.
+        Ta kontakt for informasjon. Siden er under utvikling men vil snart være oppe!
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="footer">
+  <p><a href="mailto:post@flexihandverk.no">e-post</a></p>
+  <p> | (+47) 93 63 50 60</p>
+</div>
+
+
+<script>
+image = $('#back').find('img');
+    $(window).bind('resize', function(ev) {
+        resize_image(image);
+    });
+      		
+  	load_image(image);
+function resize_image(image) {
+	var ratio = Math.max($(window).width()/image.width(),$(window).height()/image.height());
+	var w_ratio = Math.max($('#all').width()/image.width(),$('#all').height()/image.height());
+
+if ($(window).width() > $(window).height()) {
+		image.css({width:image.width()*ratio,height:'auto'});
+	} else {
+		image.css({width:'auto',height:image.height()*ratio});
+	}	
+}
+
+function load_image(image) {
+	var img = new Image();
+	img.onload = function() {
+        resize_image(image);
+	}
+	$(img).attr('src', image.attr('src'));
+}
+
+$(function() {
+	$('.flying_content li').fadeIn(1000, function() {
+        $('.flying_content').cycle();
+    });
+});
+
+
+</script>
+</body>
+</html>
+
+<style>
+#back {
+height:100%;
+overflow:hidden;
+position:absolute;
+width:100%;
+z-index:-1
+}
+
+* {
+  margin:0;
+  padding:0
+}
+
+ul, ol {
+  list-style:none
+}
+
+body {
+  margin:0;
+  padding:0
+}
+
+#container {
+  width: 1000px;
+  background: #fff;
+  border:solid 1px gray;
+  border-top:none;
+  margin: 0 auto;
+  -moz-border-radius: 0 0 20px 20px; /* Firefox */
+  -webkit-border-radius: 0 0 20px 20px; /* Safari, Chrome */
+  border-radius: 0 0 20px 20px; /* CSS3 */
+  behavior: url(border-radius.htc);
+}
+
+#header {
+  padding: 20px;
+  margin: 0 0 10px 0;
+  display:inline-block; 
+  width:960px;
+  border-bottom: solid 5px #10155e;
+}
+
+#header img {
+  float:right
+}
+
+#header ul {
+  float:left;
+  margin-top: 15px
+}
+
+#header ul li {
+  display:inline;
+  margin-right: 10px;
+}
+
+#header ul li:last-child {
+  margin:0
+}
+
+#content {
+  padding:20px 0 0 20px;
+  display:inline-block
+}
+
+#content img {
+  float:left
+}
+
+#content ul.flying_content {
+  float:left;
+  margin: 50px 0 0 235px;
+  height:100px;
+}
+
+#content ul.flying_content li {
+  font-size: 30px;
+  font-weight:bold;
+  color: #10155e;
+  width: 450px
+}
+
+#content ul#welcome {
+  float:left;
+  margin: 180px 0 0 100px;
+  background:#fff;
+  color: #555;
+  width:500px;
+  padding: 30px;
+  font-family: Verdana, serif;
+  border: solid 1px #cdcdcd;
+  -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari, Chrome */
+  border-radius: 10px; /* CSS3 */
+  behavior: url(border-radius.htc);
+}
+
+#content ul#welcome li {
+  display:inline;
+  padding:0;
+  margin:0
+}
+
+#footer {
+  width: 960px;
+  padding: 5px 20px;
+  background: #fff;
+  border:solid 1px gray;
+  margin: 10px auto 0 auto;
+  -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius:10px; /* Safari, Chrome */
+  border-radius: 10px; /* CSS3 */
+  behavior: url(border-radius.htc);
+}
+
+#footer p {
+  display:inline;
+  margin: 0 10px 0 0;
+  font-size: 13px
+}
+
+#footer p a {
+  color:#000
+}
+
+
+</style>
